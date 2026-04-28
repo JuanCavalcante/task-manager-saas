@@ -2,33 +2,32 @@
 
 Aplicacao de gerenciamento de tarefas no estilo Kanban com foco em organizacao e produtividade.
 
-## Status
+## Visao do produto
 
-Projeto funcional para portfolio com:
+O projeto entrega um fluxo completo de organizacao pessoal:
 
-- Autenticacao de usuarios (cadastro e login)
+- Cadastro e login de usuario
 - Quadro Kanban com colunas `To Do`, `In Progress` e `Done`
-- Criacao, atualizacao de status e exclusao de tarefas
-- Priorizacao de tarefas (`low`, `medium`, `high`)
-- Persistencia local com SQLite
-- Frontend web servido pelo backend
+- Criacao de tarefas com descricao, prioridade e prazo
+- Evolucao de status e exclusao de tarefas
+- Persistencia de dados em SQLite
 
-## Stack
+## Stack tecnica
 
 - Backend: Node.js + Express
+- Autenticacao: JWT + bcryptjs
 - Banco de dados: SQLite (`better-sqlite3`)
-- Autenticacao: JWT + bcrypt
-- Frontend: HTML, CSS e JavaScript
+- Frontend: HTML, CSS e JavaScript (servido pelo backend)
 
-## Estrutura
+## Estrutura do projeto
 
 - `backend/src`: API, autenticacao e camada de dados
 - `backend/public`: interface web do Kanban
-- `backend/data.sqlite`: banco SQLite criado automaticamente
+- `backend/data.sqlite`: banco SQLite criado automaticamente em runtime
 
-## Como rodar localmente
+## Como executar
 
-1. Entre na pasta do backend:
+1. Acesse a pasta do backend:
    ```bash
    cd backend
    ```
@@ -36,15 +35,20 @@ Projeto funcional para portfolio com:
    ```bash
    npm install
    ```
-3. Crie seu arquivo de ambiente:
+3. Configure variaveis de ambiente:
+   Linux/macOS:
    ```bash
    cp .env.example .env
    ```
-4. Inicie a aplicacao:
+   Windows PowerShell:
+   ```powershell
+   Copy-Item .env.example .env
+   ```
+4. Inicie o servidor:
    ```bash
    npm run dev
    ```
-5. Acesse no navegador:
+5. Abra no navegador:
    - [http://localhost:3001](http://localhost:3001)
 
 ## Endpoints principais
@@ -56,10 +60,10 @@ Projeto funcional para portfolio com:
 - `PATCH /api/tasks/:id`
 - `DELETE /api/tasks/:id`
 
-## Roadmap sugerido
+## Proximos incrementos recomendados
 
-- Multi-board por usuario
+- Drag and drop entre colunas
 - Filtros por prioridade e prazo
-- Arrastar e soltar entre colunas
-- Cobertura de testes (unitarios e integracao)
-- Deploy com CI/CD
+- Multi-board por usuario
+- Testes automatizados (unitarios e integracao)
+- Pipeline CI/CD e deploy em nuvem
