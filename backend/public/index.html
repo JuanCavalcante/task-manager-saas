@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager SaaS</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section id="authSection" class="card">
+        <h1>Task Manager SaaS</h1>
+        <p>Organize seu fluxo de trabalho em um Kanban simples e objetivo.</p>
+
+        <form id="authForm" class="stack">
+          <input id="name" type="text" placeholder="Nome" />
+          <input id="email" type="email" placeholder="Email" required />
+          <input id="password" type="password" placeholder="Senha" required minlength="6" />
+          <button type="submit">Entrar</button>
+        </form>
+
+        <button id="toggleAuth" class="link-button" type="button">Criar conta</button>
+      </section>
+
+      <section id="appSection" class="hidden">
+        <header class="topbar">
+          <h2>Meu Kanban</h2>
+          <button id="logoutBtn">Sair</button>
+        </header>
+
+        <form id="taskForm" class="card stack">
+          <h3>Nova tarefa</h3>
+          <input id="taskTitle" type="text" placeholder="Titulo da tarefa" required />
+          <textarea id="taskDescription" placeholder="Descricao"></textarea>
+          <div class="row">
+            <select id="taskStatus">
+              <option value="todo">To Do</option>
+              <option value="in_progress">In Progress</option>
+              <option value="done">Done</option>
+            </select>
+            <select id="taskPriority">
+              <option value="low">Baixa</option>
+              <option value="medium" selected>Media</option>
+              <option value="high">Alta</option>
+            </select>
+            <input id="taskDueDate" type="date" />
+          </div>
+          <button type="submit">Adicionar tarefa</button>
+        </form>
+
+        <section class="board" id="board"></section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
